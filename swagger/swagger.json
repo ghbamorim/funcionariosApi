@@ -1,0 +1,319 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Stock api",
+		"description": "Stock api",
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "http://127.0.0.1:3001"
+		}
+	],
+	"paths": {
+		"/funcionarios/new": {
+			"post": {
+				"summary": "Cria um novo funcionário",
+				"requestBody": {
+					"description": "Dados do funcionário",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Funcionario"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Sucess",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Funcionario"
+								}
+							}
+						}
+					},
+					"406": {
+						"description": "Erro de validação",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/ErroValidacao"
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Erro genérico",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Erro"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/funcionarios/update": {
+			"patch": {
+				"summary": "Edita um funcionário",
+				"requestBody": {
+					"description": "Dados do funcionário",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Funcionario"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Sucess",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Funcionario"
+								}
+							}
+						}
+					},
+					"406": {
+						"description": "Erro de validação",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/ErroValidacao"
+									}
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Erro genérico",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Erro"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/funcionarios/delete": {
+			"delete": {
+				"summary": "Deleta um funcionário por id",
+				"description": "Deleta um funcionário por id",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"schema": {
+							"type": "number"
+						},
+						"description": "id do funcionário",
+						"required": "true"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Sucesso",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RespostaSucesso"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Usuário não encontrado"
+					},
+					"500": {
+						"description": "Erro genérico",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Erro"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/funcionarios/query_by_id": {
+			"get": {
+				"summary": "Pesquisa funcionário por id",
+				"description": "Pesquisa funcionário por id",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"schema": {
+							"type": "number"
+						},
+						"description": "Id do funcionário",
+						"required": "true"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Sucesso",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Funcionario"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Usuário não encontrado"
+					},
+					"500": {
+						"description": "Erro genérico",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Erro"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/funcionarios/query_by_name": {
+			"get": {
+				"summary": "Pesquisa funcionário por nome",
+				"description": "Pesquisa funcionário por nome",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "nome",
+						"schema": {
+							"type": "string"
+						},
+						"description": "Nome do funcionário",
+						"required": "true"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Sucesso",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Funcionario"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Usuário não encontrado"
+					},
+					"500": {
+						"description": "Erro genérico",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Erro"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/funcionarios/list": {
+			"get": {
+				"summary": "Lista todos os funcionários",
+				"responses": {
+					"200": {
+						"description": "Sucess",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Funcionario"
+									}
+								}
+							}
+						}
+					}
+				},
+				"500": {
+					"description": "Erro genérico",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Erro"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Funcionario": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"nome": {
+						"type": "string"
+					},
+					"cargo": {
+						"type": "string"
+					}
+				}
+			},
+			"RespostaSucesso": {
+				"properties": {
+					"mensagem": {
+						"type": "string"
+					}
+				}
+			},
+			"ErroValidacao": {
+				"type": "object",
+				"properties": {
+					"model": {
+						"type": "string"
+					},
+					"campo": {
+						"type": "string"
+					},
+					"mensagem": {
+						"type": "string"
+					}
+				}
+			},
+			"Erro": {
+				"properties": {
+					"error": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}
