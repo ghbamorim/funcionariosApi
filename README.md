@@ -1,9 +1,7 @@
-# Gerenciador de funcionários
-
-## Api-service
-Api para gerenciamento de funcionários
+# Gerenciador de funcionários  
+Api para gerenciamento de funcionários  
 ### Instruções:
-Instale as dependências:
+Instale as dependências:  
   `npm install`;  
 Inicialize o serviço:  
 `npm start`;  
