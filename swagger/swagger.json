@@ -7,8 +7,14 @@
 	},
 	"servers": [
 		{
-			"url": "http://127.0.0.1:3001"
+			"url": "http://3.129.218.243:3001",
+			"description": "AWS"
+		},
+		{
+			"url": "http://127.0.0.1:3001",
+			"description": "Localhost"
 		}
+		
 	],
 	"paths": {
 		"/funcionarios/new": {
