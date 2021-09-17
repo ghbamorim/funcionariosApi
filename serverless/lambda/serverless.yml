@@ -1,0 +1,28 @@
+service: sls-func-lambda
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  memorySize: 256
+  timeout: 3
+
+functions:
+  list:
+    handler: list.handler
+    description: Lista os funcionarios
+    events:
+      - http:
+          path: /list
+          method: get
+          cors: true
+
+  new:
+      handler: novofunc.new
+      description: Lista os funcionarios2
+      events:
+        - http:
+            path: /new
+            method: get
+            cors: true
