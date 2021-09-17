@@ -8,7 +8,7 @@ Inicialize o serviço:
 Testes:  
 `npx jest`   
 #### Swagger
-Você pode acessar a interface do Swagger pela rota /docs. Ex.: 
+Você pode acessar a interface do Swagger pela rota /docs. Ex.:  
 `http://3.129.218.243:3001/docs`
 #### Serverless
 Os arquivos das funções lambda estão na pasta ./serverless/lambda.  
