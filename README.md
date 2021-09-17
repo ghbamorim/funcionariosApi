@@ -9,7 +9,7 @@ Testes:
 `npx jest`   
 #### Swagger
 Você pode acessar a interface do Swagger pela rota /docs. Ex.: 
-`http://127.0.0.1:3001/docs`
+`http://3.129.218.243:3001/docs`
 #### Serverless
 Os arquivos das funções lambda estão na pasta ./serverless/lambda.  
 Existe uma instância da aplicação sendo executada no Aws no endereço: http://3.129.218.243:3001  
