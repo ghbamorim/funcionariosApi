@@ -1,8 +1,10 @@
 const http = require("http");
 
-module.exports.new = async (event) => {
+exports.handler = async (event) => {
   try {
-    return httprequest().then((data) => {
+    let name = event.queryStringParameters && event.queryStringParameters.nome;
+
+    return httprequest(name).then((data) => {
       const response = {
         statusCode: 200,
         body: JSON.stringify(data),
@@ -19,11 +21,11 @@ module.exports.new = async (event) => {
   }
 };
 
-function httprequest() {
+function httprequest(data) {
   return new Promise((resolve, reject) => {
     const options = {
       host: "3.129.218.243",
-      path: "/funcionarios/list",
+      path: `/funcionarios/query_by_name?nome=${data}`,
       port: 3001,
       method: "GET",
     };

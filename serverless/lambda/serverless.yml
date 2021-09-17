@@ -19,10 +19,36 @@ functions:
           cors: true
 
   new:
-      handler: novofunc.new
-      description: Lista os funcionarios2
+      handler: novofunc.handler
+      description: Novo funcionario
       events:
         - http:
             path: /new
+            method: post
+            cors: true
+
+  byid:
+      handler: getfuncbyid.handler
+      description: Funcinario por id
+      events:
+        - http:
+            path: /byid
             method: get
             cors: true
+            request:
+              parameters:
+                querystrings:
+                  id: false
+
+  byname:
+    handler: getfuncbyname.handler
+    description: Funcinario por nome
+    events:
+      - http:
+          path: /byname
+          method: get
+          cors: true
+          request:
+            parameters:
+              querystrings:
+                name: false

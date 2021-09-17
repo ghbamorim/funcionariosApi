@@ -1,8 +1,10 @@
 const http = require("http");
 
-module.exports.new = async (event) => {
+exports.handler = async (event) => {
   try {
-    return httprequest().then((data) => {
+    let id = event.queryStringParameters && event.queryStringParameters.id;
+
+    return httprequest(id).then((data) => {
       const response = {
         statusCode: 200,
         body: JSON.stringify(data),
@@ -19,11 +21,11 @@ module.exports.new = async (event) => {
   }
 };
 
-function httprequest() {
+function httprequest(id) {
   return new Promise((resolve, reject) => {
     const options = {
       host: "3.129.218.243",
-      path: "/funcionarios/list",
+      path: `/funcionarios/query_by_id?id=${id}`,
       port: 3001,
       method: "GET",
     };
