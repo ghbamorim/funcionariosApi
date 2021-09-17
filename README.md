@@ -17,7 +17,7 @@ As funções lambda estão apontando para este endereço.
 Foi utilizado o framework serverless (https://serverless.com).
 Para fazer o deploy, após se autenticar no Aws, execute o seguinte comando dentro da pasta ./serverless/lambda:  
 `serverless deploy -v`;  
- ***Apenas as rotas get estão funcionando
- http://3.129.218.243:3001/funcionarios/list
- https://j4gy0d50wi.execute-api.us-east-1.amazonaws.com/dev/byid?id=1
- https://j4gy0d50wi.execute-api.us-east-1.amazonaws.com/dev/byname?nome=Gustavo+Amorim
+ ***Apenas as rotas get estão funcionando:  
+ http://3.129.218.243:3001/funcionarios/list  
+ https://j4gy0d50wi.execute-api.us-east-1.amazonaws.com/dev/byid?id=1  
+ https://j4gy0d50wi.execute-api.us-east-1.amazonaws.com/dev/byname?nome=Gustavo+Amorim  
